@@ -4,17 +4,18 @@
 <br>**Description**
 <br>**Technologies**
 <br>**Screenshots/Mockup**
-![Alt text](/img/ReadMe/ChoosePhoto.jpg "Choose Photo")
-![Alt text](/img/ReadMe/ChooseTheme.jpg "Choose Theme")
-![Alt text](/img/ReadMe/CommentSection.jpg "Comment Section")
-![Alt text](/img/ReadMe/MainScreen.jpg "Main Screen")
-![Alt text](/img/ReadMe/Profile.jpg "Profile")
-![Alt text](/img/ReadMe/RatingPopup.jpg "Rating Popup")
-![Alt text](/img/ReadMe/Settings.jpg "Settings")
-![Alt text](/img/ReadMe/SignUp.jpg "Sign Up")
-![Alt text](/img/ReadMe/SplashScreen.jpg "Splash Screen")
-![Alt text](/img/ReadMe/UnhiddenScores.jpg "Unhidden Scores")
-![Alt text](/img/ReadMe/UploadPhoto.jpg "Upload Photo")
+
+<img src="/img/ReadMe/ChoosePhoto.jpg" alt="Choose Photo" height="531" width="298">
+<img src="/img/ReadMe/ChooseTheme.jpg" alt="Choose Theme" height="531" width="298">
+<img src="/img/ReadMe/CommentSection.jpg" alt="Comment Section" height="531" width="298">
+<img src="/img/ReadMe/MainScreen.jpg" alt="Main Screen" height="531" width="298">
+<img src="/img/ReadMe/Profile.jpg" alt="Profile" height="531" width="298">
+<img src="/img/ReadMe/RatingPopup.jpg" alt="Rating Popup" height="531" width="298">
+<img src="/img/ReadMe/Settings.jpg" alt="Settings" height="531" width="298">
+<img src="/img/ReadMe/SignUp.jpg" alt="Sign Up" height="531" width="298">
+<img src="/img/ReadMe/SplashScreen.jpg" alt="Splash Screen" height="531" width="298">
+<img src="/img/ReadMe/UnhiddenScores.jpg" alt="Unhidden Scores" height="531" width="298">
+<img src="/img/ReadMe/UploadPhoto.jpg" alt="Upload Photo" height="531" width="298">
 
 <br>**Installation Instructions**
 <br>**Contribution Guidelines**
