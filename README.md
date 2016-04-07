@@ -30,6 +30,7 @@ To be determined. Will work more on installation properties as term progresses.
 Contributions are primarily by Russ Hurtado and Travis Miller. Should someone else desire to make changes they must contact one of us before making changes final and/or committing them. Commits should have a clear, concise title with any further information in the description.
 
 <br>**Bugs and TODO List**<br>
+There are currently no bugs since this project is still in the design phase. Our current list of items is to complete the design of this project and then start working on a desktop version of the application, making sure that simple things like menus and signing in work correctly. From there we will move to making the app function like it should, verifying that all clickable areas work and keeping the app looking clean. Once that works we will port it to mobile phones and work on whatever bugs may arise.
 
 <br>**Contributor List**<br>
 Russ Hurtado
@@ -37,4 +38,6 @@ Travis Miller
 
 <br>**Credits, Inspiration, Alternatives**<br>
 
+
 <br>**License**<br>
+
