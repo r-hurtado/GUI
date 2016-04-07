@@ -6,7 +6,9 @@
 
 <br>**Description**<br>
 This program is built to be a mobile photo sharing application. The application will work by sending users pictures stored within a database. Twice a day users will be sent a batch of photos. The photos will be random and have no particular order. From there, users will be able to rate the photos on a 1-10 scale (1 horrible, 10 perfect) as well as leaving a comment. After they have submitted their rating, they will see the overall rating of the picture. Users will also have the ability to upload their own pictures for rating. There wil be tags associated with the pictures uploaded, along with push notifications when someone uploads a picture. 
+
 <br>**Technologies**<br>
+C++, Qt, JavaScript, QML, SQLite
 
 <br>**Screenshots/Mockup**<br>
 <img src="/img/ReadMe/ChoosePhoto.jpg" alt="Choose Photo" height="531" width="298">
@@ -21,14 +23,18 @@ This program is built to be a mobile photo sharing application. The application 
 <img src="/img/ReadMe/UnhiddenScores.jpg" alt="Unhidden Scores" height="531" width="298">
 <img src="/img/ReadMe/UploadPhoto.jpg" alt="Upload Photo" height="531" width="298">
 
-<br>**Installation Instructions**
+<br>**Installation Instructions**<br>
+To be determined. Will work more on installation properties as term progresses.
 
-<br>**Contribution Guidelines**
+<br>**Contribution Guidelines**<br>
 
-<br>**Bugs and TODO List**
 
-<br>**Contributor List**
+<br>**Bugs and TODO List**<br>
 
-<br>**Credits, Inspiration, Alternatives**
+<br>**Contributor List**<br>
+Russ Hurtado
+Travis Miller
 
-<br>**License**
+<br>**Credits, Inspiration, Alternatives**<br>
+
+<br>**License**<br>
