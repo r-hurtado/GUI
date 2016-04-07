@@ -1,9 +1,11 @@
 #RussT
 ###Radically Unsecure Simulacrum Sharing Technology
-**Project Logo**
-![alt text](/img/ReadMe/gear.png "RussT logo")
-<br>**Description**<br>
 
+**Project Logo**<br>
+![alt text](/img/ReadMe/gear.png "RussT logo")
+
+<br>**Description**<br>
+This program is built to be a mobile photo sharing application. The application will work by sending users pictures stored within a database. Twice a day users will be sent a batch of photos. The photos will be random and have no particular order. From there, users will be able to rate the photos on a 1-10 scale (1 horrible, 10 perfect) as well as leaving a comment. After they have submitted their rating, they will see the overall rating of the picture. Users will also have the ability to upload their own pictures for rating. There wil be tags associated with the pictures uploaded, along with push notifications when someone uploads a picture. 
 <br>**Technologies**<br>
 
 <br>**Screenshots/Mockup**<br>
