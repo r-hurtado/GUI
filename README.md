@@ -44,8 +44,7 @@ Contributions are primarily by Russ Hurtado and Travis Miller. Should someone el
 There are currently no bugs since this project is still in the design phase. Our current list of items is to complete the design of this project and then start working on a desktop version of the application, making sure that simple things like menus and signing in work correctly. From there we will move to making the app function like it should, verifying that all clickable areas work and keeping the app looking clean. Once that works we will port it to mobile phones and work on whatever bugs may arise.
 
 <br>**Contributor List**<br>
-Russ Hurtado
-Travis Miller
+Russ Hurtado<br>Travis Miller
 
 <br>**Credits, Inspiration, Alternatives**<br>
 The idea for this application came from many other social media sites, such as Facebook, Instagram, Tumblr, and iFunny. To separate our application from the ones mentioned above, we wanted it to be more personal, but also carefree. We want our application to let users be parts of certain friend groups that aren't in the current social media sites. This means that friends may have certain "circles" that they are a part of, such as a "Nature" theme, or "Sports Car" theme. By adding these friend groups, they will get notifications when someone from that group uploads or rates a picture in that tagged section, allowing the user to then look at that picture and add their own rating and comment. 
