@@ -1,10 +1,12 @@
 #RussT
 ###Radically Unsecure Simulacrum Sharing Technology
 **Project Logo**
-<br>**Description**
-<br>**Technologies**
-<br>**Screenshots/Mockup**
+![alt text](/img/ReadMe/gear.png "RussT logo")
+<br>**Description**<br>
 
+<br>**Technologies**<br>
+
+<br>**Screenshots/Mockup**<br>
 <img src="/img/ReadMe/ChoosePhoto.jpg" alt="Choose Photo" height="531" width="298">
 <img src="/img/ReadMe/ChooseTheme.jpg" alt="Choose Theme" height="531" width="298">
 <img src="/img/ReadMe/CommentSection.jpg" alt="Comment Section" height="531" width="298">
@@ -18,8 +20,13 @@
 <img src="/img/ReadMe/UploadPhoto.jpg" alt="Upload Photo" height="531" width="298">
 
 <br>**Installation Instructions**
+
 <br>**Contribution Guidelines**
+
 <br>**Bugs and TODO List**
+
 <br>**Contributor List**
+
 <br>**Credits, Inspiration, Alternatives**
+
 <br>**License**
