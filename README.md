@@ -27,7 +27,7 @@ C++, Qt, JavaScript, QML, SQLite
 To be determined. Will work more on installation properties as term progresses.
 
 <br>**Contribution Guidelines**<br>
-
+Contributions are primarily by Russ Hurtado and Travis Miller. Should someone else desire to make changes they must contact one of us before making changes final and/or committing them. Commits should have a clear, concise title with any further information in the description.
 
 <br>**Bugs and TODO List**<br>
 
