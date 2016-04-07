@@ -12,16 +12,27 @@ C++, Qt, JavaScript, QML, SQLite
 
 <br>**Screenshots/Mockup**<br>
 <img src="/img/ReadMe/ChoosePhoto.jpg" alt="Choose Photo" height="531" width="298">
+<br>This picture is a butt<br>
 <img src="/img/ReadMe/ChooseTheme.jpg" alt="Choose Theme" height="531" width="298">
+<br>This is a house<br>
 <img src="/img/ReadMe/CommentSection.jpg" alt="Comment Section" height="531" width="298">
+<br>Wow I am so good at programming<br>
 <img src="/img/ReadMe/MainScreen.jpg" alt="Main Screen" height="531" width="298">
+<br>inb4 russ says this isnt a real language<br>
 <img src="/img/ReadMe/Profile.jpg" alt="Profile" height="531" width="298">
+<br>im done. russ can make the rest of the changes<br>
 <img src="/img/ReadMe/RatingPopup.jpg" alt="Rating Popup" height="531" width="298">
+<br><br>
 <img src="/img/ReadMe/Settings.jpg" alt="Settings" height="531" width="298">
+<br><br>
 <img src="/img/ReadMe/SignUp.jpg" alt="Sign Up" height="531" width="298">
+<br><br>
 <img src="/img/ReadMe/SplashScreen.jpg" alt="Splash Screen" height="531" width="298">
+<br><br>
 <img src="/img/ReadMe/UnhiddenScores.jpg" alt="Unhidden Scores" height="531" width="298">
+<br><br>
 <img src="/img/ReadMe/UploadPhoto.jpg" alt="Upload Photo" height="531" width="298">
+<br><br>
 
 <br>**Installation Instructions**<br>
 To be determined. Will work more on installation properties as term progresses.
