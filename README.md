@@ -37,7 +37,7 @@ Russ Hurtado
 Travis Miller
 
 <br>**Credits, Inspiration, Alternatives**<br>
-
+The idea for this application came from many other social media sites, such as Facebook, Instagram, Tumblr, and iFunny. To separate our application from the ones mentioned above, we wanted it to be more personal, but also carefree. We want our application to let users be parts of certain friend groups that aren't in the current social media sites. This means that friends may have certain "circles" that they are a part of, such as a "Nature" theme, or "Sports Car" theme. By adding these friend groups, they will get notifications when someone from that group uploads or rates a picture in that tagged section, allowing the user to then look at that picture and add their own rating and comment. 
 
 <br>**License**<br>
 
