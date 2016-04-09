@@ -5,12 +5,11 @@ Rectangle {
 
     property alias text: textItem.text
     property alias font: textItem.font
-    property alias font.color: textItem.color
+    property alias fontColor: textItem.color
 
     Text{
         id: textItem
         anchors.centerIn: root
-
     }
 }
 

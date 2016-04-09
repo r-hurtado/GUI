@@ -7,6 +7,15 @@ Rectangle {
     signal hoverStarted
     signal hoverFinished
 
+    property alias text: textArea.text
+    property alias font: textArea.font
+    property alias fontColor: textArea.color
+
+    Text{
+        id:textArea
+        anchors.centerIn: root
+    }
+
     MouseArea {
         id: mouseArea
         anchors.fill: parent
