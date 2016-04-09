@@ -13,86 +13,103 @@ Rectangle
     {
         if(img_o1.visible === true && img_o2.visible === true && img_o3.visible === true)
         {
+            txt_game_over.text = "O wins\nGame Over"
             game_over = true;
             txt_game_over.visible = true;
         }
         else if(img_o1.visible && img_o5.visible && img_o9.visible)
         {
+            txt_game_over.text = "O wins\nGame Over"
             game_over = true;
             txt_game_over.visible = true;
         }
         else if(img_o1.visible && img_o4.visible && img_o7.visible)
         {
+            txt_game_over.text = "O wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_o2.visible && img_o5.visible && img_o8.visible)
         {
+            txt_game_over.text = "O wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_o3.visible && img_o5.visible && img_o7.visible)
         {
+            txt_game_over.text = "O wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_o3.visible && img_o6.visible && img_o9.visible)
         {
+            txt_game_over.text = "O wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_o4.visible && img_o5.visible && img_o6.visible)
         {
+            txt_game_over.text = "O wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_o7.visible && img_o8.visible && img_o9.visible)
         {
+            txt_game_over.text = "O wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x1.visible && img_x2.visible && img_x3.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x1.visible && img_x5.visible && img_x9.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x1.visible && img_x4.visible && img_x7.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x2.visible && img_x5.visible && img_x8.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x3.visible && img_x5.visible && img_x7.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x3.visible && img_x6.visible && img_x9.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x4.visible && img_x5.visible && img_x6.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(img_x7.visible && img_x8.visible && img_x9.visible)
         {
+            txt_game_over.text = "X wins\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
         else if(has_clicked[0] && has_clicked[1] && has_clicked[2] && has_clicked[3] && has_clicked[4] && has_clicked[5] && has_clicked[6] && has_clicked[7] && has_clicked[8])
         {
+            txt_game_over.text = "Cats\nGame Over"
             txt_game_over.visible = true;
             game_over = true;
         }
@@ -158,7 +175,7 @@ Rectangle
                 anchors.fill: parent
                 // if cell is not clicked and not game over
                 onClicked: {
-                    if(!has_clicked[0])
+                    if(!has_clicked[0] && !game_over)
                     {
                         first_player_turn ? img_x1.visible = true : img_o1.visible = true
                         first_player_turn = !first_player_turn
@@ -204,7 +221,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[1])
+                    if(!has_clicked[1] && !game_over)
                     {
                         first_player_turn ? img_x2.visible = true : img_o2.visible = true
                         first_player_turn = !first_player_turn
@@ -220,7 +237,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[2])
+                    if(!has_clicked[2] && !game_over)
                     {
                         first_player_turn ? img_x3.visible = true : img_o3.visible = true
                         first_player_turn = !first_player_turn
@@ -235,7 +252,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[3])
+                    if(!has_clicked[3] && !game_over)
                     {
                         first_player_turn ? img_x4.visible = true : img_o4.visible = true
                         first_player_turn = !first_player_turn
@@ -250,7 +267,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[4])
+                    if(!has_clicked[4] && !game_over)
                     {
                         first_player_turn ? img_x5.visible = true : img_o5.visible = true
                         first_player_turn = !first_player_turn
@@ -265,7 +282,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[5])
+                    if(!has_clicked[5] && !game_over)
                     {
                         first_player_turn ? img_x6.visible = true : img_o6.visible = true
                         first_player_turn = !first_player_turn
@@ -280,7 +297,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[6])
+                    if(!has_clicked[6] && !game_over)
                     {
                         first_player_turn ? img_x7.visible = true : img_o7.visible = true
                         first_player_turn = !first_player_turn
@@ -295,7 +312,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[7])
+                    if(!has_clicked[7] && !game_over)
                     {
                         first_player_turn ? img_x8.visible = true : img_o8.visible = true
                         first_player_turn = !first_player_turn
@@ -310,7 +327,7 @@ Rectangle
             {
                 anchors.fill: parent
                 onClicked: {
-                    if(!has_clicked[8])
+                    if(!has_clicked[8] && !game_over)
                     {
                         first_player_turn ? img_x9.visible = true : img_o9.visible = true
                         first_player_turn = !first_player_turn
