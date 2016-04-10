@@ -7,6 +7,7 @@ TextRect{
     signal hoverStarted
     signal hoverFinished
 
+    //property alias tZ: tZ
     property alias bFont: textButton.font
     property alias bText: textButton.text
     property alias bColor: textButton.color

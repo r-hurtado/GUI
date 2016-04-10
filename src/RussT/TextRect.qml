@@ -3,6 +3,7 @@ import QtQuick 2.0
 Rectangle {
     id: root
 
+    property alias tZ: textItem.z
     property alias text: textItem.text
     property alias font: textItem.font
     property alias fontColor: textItem.color
