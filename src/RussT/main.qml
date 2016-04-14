@@ -11,6 +11,7 @@ Window {
     height: 450
     width: 0800
     color: "black"
+    visibility: "Maximized"
 
     Text{
      text: Users.first.getUsername()
