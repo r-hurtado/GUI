@@ -12,33 +12,10 @@ Window {
     width: 0800
     color: "black"
 
-    /*TextRect{
-        height: 225
-        width: 0400
-        color: "blue"
-        text: "Hello world."
-        anchors.centerIn: parent
-        font.pointSize: 24
-        font.bold: true
-        fontColor: "white"
+    Text{
+     text: Users.first.getUsername()
 
-        Button{
-            height: 45
-            width: 160
-            radius: height/5
-            color: "red"
-            fontColor: "white"
-            text: "Click Me!"
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: height/5
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            onHoverStarted: color = "green"
-            onHoverFinished: color = "red"
-            onClicked: parent.visible = false
-        }
-    }*/
-
+    }
 
     Dialog{
 
@@ -95,7 +72,6 @@ Window {
         width: 0700
         color: "blue"
         text: "Welcome!\nOur program is a photo sharing app.\nUsers will upload photos, then rate and comment on other photos.\n"
-        //anchors.centerIn: parent
         x: parent.width/2 - width/2
         y: parent.height/2 - height/2
         font.pointSize: 12
