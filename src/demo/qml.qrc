@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Login.qml</file>
+        <file>CreateAccount.qml</file>
+        <file>HomeScreen.qml</file>
+    </qresource>
+</RCC>
