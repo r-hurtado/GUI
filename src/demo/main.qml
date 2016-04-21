@@ -17,7 +17,6 @@ Window {
             home_page.visible = true
         }
         onCreateAccountClicked: {
-
             visible = false
             account_page.visible = true
         }
@@ -37,6 +36,12 @@ Window {
             visible = false
             home_page.visible = true
         }
+        onUploadImageClicked: {
+            console.log("Upload image button clicked")
+            // create account visible: false
+            // set user image
+            // create account visible true
+        }
     }
 
     HomeScreen{
@@ -44,5 +49,33 @@ Window {
         height: parent.height
         width: parent.width
         visible: false
+
+        onMenuClicked: {
+            console.log("menu clicked")
+        }
+
+        onRefreshedClicked: {
+            console.log("refreshed clicked")
+        }
+
+        onSharedClicked: {
+            console.log("shared clicked")
+        }
+
+        onUploadClicked: {
+            console.log("upload clicked")
+        }
+
+        onStarClicked: {
+            console.log("star clicked")
+        }
+
+        onCommentClicked: {
+            console.log("comment clicked")
+        }
+
+        onRateClicked: {
+            console.log("rate clicked")
+        }
     }
 }

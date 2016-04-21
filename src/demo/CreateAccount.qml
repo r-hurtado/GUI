@@ -6,31 +6,34 @@ Rectangle
 {
     signal backClicked
     signal createAccountClicked
+    signal uploadImageClicked
 
     id: create_account_rect
     height: 400
     width: 400
-    color: "red"
+    color: "cadetblue"
     visible: true
 
     Text{
-        //anchors.horizontalCenterOffset: 200
+        id: create_txt
         text: "Create Account"
-        font.pointSize: 24
+        font.pointSize: 28
+        font.bold: true
         color: "white"
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     // Back button that takes user to login screen
     Rectangle {
         id: back_button
-        height: 15
-        width: 30
+        height: 20
+        width: 40
         color: "silver"
 
         Text{
             text: "Back"
             color: "black"
-            font.pointSize: 8
+            font.pointSize: 10
         }
 
         MouseArea{
@@ -41,14 +44,27 @@ Rectangle
         }
     }
 
+    // circle for upload image
+    Rectangle{
+        height: parent.width / 4
+        width: height
+        radius: width/2
+        color: "white"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: parent.height / -3.5
+        border.color: "black"
+        border.width: 2
+    }
+
     // buttons for create username, email, password
     Rectangle{
         id: create_username
         height: 30
-        width: 200
+        width: parent.width * .9
         color: "white"
-        x: 40
-        y: 60
+        x: parent.width * .05
+        y: parent.height * .5
 
         TextField{
             id: username_txt
@@ -62,8 +78,8 @@ Rectangle
             height: parent.height
             width: parent.width
             color: parent.color
-            x: 0
-            y: 40
+
+            y: parent.height * 1.5
 
 
             TextField{
@@ -77,8 +93,8 @@ Rectangle
                 height: parent.height
                 width: parent.width
                 color: parent.color
-                x: 0
-                y: 40
+
+                y: parent.height * 1.5
 
                 TextField{
                     id: password_txt
@@ -87,5 +103,49 @@ Rectangle
                 }
             }
         }
+
+    }
+    // confirm create account button
+    Rectangle{
+        color: "silver"
+        height: parent.height / (32/3)
+        width: parent.width * .4375
+        anchors.left: parent.left
+        anchors.leftMargin: parent.width * .05
+        y: create_username.y + (create_username.height * 4.5)
+
+        Text{
+            anchors.centerIn: parent
+            text: "Upload Image"
+            font.pointSize: parent.height / (60/14)
+            color: "black"
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: uploadImageClicked()/*open front facing camera*/
+        }
+    }
+    Rectangle{
+        color: "silver"
+        height: parent.height / (32/3)
+        width: parent.width * .4375
+        anchors.right: parent.right
+        anchors.rightMargin: parent.width * .05
+        y: create_username.y + (create_username.height * 4.5)
+
+        Text{
+            anchors.centerIn: parent
+            text: "Create Account"
+            font.pointSize: parent.height / (60/14)
+            color: "black"
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: createAccountClicked()
+        }
+
+
     }
 }

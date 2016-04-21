@@ -69,7 +69,7 @@ Rectangle
         anchors.right: parent.right
         anchors.rightMargin: parent.width * .05
         y: username.y + (username.height * 2.75)
-        color: "dimgrey"
+        color: "grey"
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
@@ -91,7 +91,7 @@ Rectangle
     {
         height: parent.height / (32/3)
         width: parent.width * .4375
-        color: "dimgrey"
+        color: "grey"
         anchors.left: parent.left
         anchors.leftMargin: parent.width * .05
         y: username.y + (username.height * 2.75)
