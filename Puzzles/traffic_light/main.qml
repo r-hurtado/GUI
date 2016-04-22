@@ -8,12 +8,35 @@ ApplicationWindow {
     height: 480
     title: qsTr("Traffic Light")
 
-    property int index: 0
+    //property int index: 0
 
     Rectangle
     {
         id: big_wrapper
         anchors.fill: parent
+
+        Settings{
+            id: settings
+            property alias g: rect_green_light.color
+            property alias y: rect_yellow_light.color
+            property alias r: rect_red_light.color
+            property int index
+        }
+
+        Timer{
+            id: timer
+            interval: 2000
+            running: true
+            repeat: true
+
+            onTriggered: {
+                TrafficLight.toggle_light(settings.index++ % 3)
+                console.log(settings.index)
+                rect_green_light.color = TrafficLight.get_light_on(0) ? "green" : "black"
+                rect_yellow_light.color = TrafficLight.get_light_on(1) ? "yellow" : "black"
+                rect_red_light.color = TrafficLight.get_light_on(2) ? "red" : "black"
+            }
+        }
 
         Rectangle
         {

@@ -26,6 +26,7 @@ void Traffic_Light::toggle_light(int index)
             m_light[i].set_light(true);
         else
             m_light[i].set_light(false);
+        //qDebug() << m_light[i].get_light();
     }
 }
 

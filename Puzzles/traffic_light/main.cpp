@@ -11,6 +11,11 @@ int main(int argc, char *argv[])
 
     Traffic_Light traffic_light;
 
+
+    QCoreApplication::setApplicationName("Puzzle4");
+    QCoreApplication::setOrganizationName("RussT");
+    QCoreApplication::setOrganizationDomain(".com");
+
     engine.rootContext()->setContextProperty("TrafficLight", &traffic_light);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
