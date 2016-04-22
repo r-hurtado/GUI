@@ -32,28 +32,62 @@ Rectangle {
         visible: false
         height: parent.height * .4
         width: parent.width * .5
-        color: "black"
+        color: "blue"
         z:1
-        MouseArea{
-            anchors.fill: parent
-            z:0
-            onClicked: {
-                //pop_menu.visible = false
+        Column{
+            //anchors.fill: parent
+            height: parent.height
+            width: parent.width
 
+            Rectangle{
+                height: parent.height / 3 //number of elements
+                width: parent.width
+                border.width: 1
+                MouseArea{
+                    anchors.fill: parent
+                    z:0
+                    onClicked: {
+                        console.log("1")//pop_menu.visible = false
+                    }
+                }
+            }
+            Rectangle{
+                height: parent.height / 3 //number of elements
+                width: parent.width
+                border.width: 1
+                MouseArea{
+                    anchors.fill: parent
+                    z:0
+                    onClicked: {
+                        console.log("2")//pop_menu.visible = false
+                    }
+                }
+            }
+            Rectangle{
+                height: parent.height / 3 //number of elements
+                width: parent.width
+                border.width: 1
+                MouseArea{
+                    anchors.fill: parent
+                    z:0
+                    onClicked: {
+                        console.log("3")//pop_menu.visible = false
+                    }
+                }
             }
         }
+
     }
 
     Row{
-        spacing: parent.width / 7
-        x: parent.width * 0.05
-        y: 40
-        width: parent.width * 0.9
+        //y: 40
+        width: parent.width
 
         // menu button
         Rectangle{
             height: 40
-            width: parent.width / 7
+            width: parent.width / 4
+            border.width: 1
             Text{
                 text: "menu"
                 font.pointSize: 8
@@ -61,7 +95,8 @@ Rectangle {
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    pop_menu.visible = true
+                    //animate on x from x = -width -> x = 0
+                    //pop_menu.visible = true
                     mouse_behind.enabled = true
                 }
             }
@@ -70,7 +105,8 @@ Rectangle {
         // Refresh images button
         Rectangle{
             height: 40
-            width: parent.width / 7
+            width: parent.width / 4
+            border.width: 1
             Text{
                 text: "refresh"
                 font.pointSize: 8
@@ -83,7 +119,8 @@ Rectangle {
         // share button
         Rectangle{
             height: 40
-            width: parent.width / 7
+            width: parent.width / 4
+            border.width: 1
             Text{
                 text: "share"
                 font.pointSize: 8
@@ -97,7 +134,8 @@ Rectangle {
         // upload photo button
         Rectangle{
             height: 40
-            width: parent.width / 7
+            width: parent.width / 4
+            border.width: 1
             Text{
                 text: "upload"
                 font.pointSize: 8
@@ -109,57 +147,58 @@ Rectangle {
 
         }
     }
-    // star image
-    Rectangle{
-        height: 40
-        width: 40
-        x: 40
+
+    Row{
+        width: parent.width
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 40
+        //anchors.bottomMargin: 40
 
-        Text{
-            text: "star"
-            font.pointSize: 8
-        }
-        MouseArea{
-            anchors.fill: parent
-            onClicked: starClicked()
-        }
-    }
+        // star image
+        Rectangle{
+            height: 40
+            width: parent.width / 4
+            border.width: 1
 
-    // Comment image
-    Rectangle{
-        height: 40
-        width: 40
-        x: 120
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 40
-
-        Text{
-            text: "comment"
-            font.pointSize: 8
+            Text{
+                text: "star"
+                font.pointSize: 8
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: starClicked()
+            }
         }
-        MouseArea{
-            anchors.fill: parent
-            onClicked: commentClicked()
-        }
-    }
 
-    // Rate button
-    Rectangle{
-        height: 40
-        width: 120
-        x: 320
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 40
+        // Comment image
+        Rectangle{
+            height: 40
+            width: parent.width / 4
+            border.width: 1
 
-        Text{
-            text: "rate"
-            font.pointSize: 8
+            Text{
+                text: "comment"
+                font.pointSize: 8
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: commentClicked()
+            }
         }
-        MouseArea{
-            anchors.fill: parent
-            onClicked: rateClicked()
+
+        // Rate button
+        Rectangle{
+            height: 40
+            width: parent.width / 2
+            border.width: 1
+
+            Text{
+                text: "rate"
+                font.pointSize: 8
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: rateClicked()
+            }
         }
     }
 }
