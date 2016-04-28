@@ -72,7 +72,7 @@ Rectangle
         color: "grey"
 
         Text {
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             text: " Create\nAccount"
             font.pointSize: parent.height / (60/14)
             color: "black"
@@ -97,7 +97,7 @@ Rectangle
         y: username.y + (username.height * 2.75)
 
         Text{
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             text: "Login"
             font.pointSize: parent.height / (60/26)
             color: "black"

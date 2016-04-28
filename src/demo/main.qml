@@ -78,5 +78,14 @@ Window {
         onRateClicked: {
             console.log("rate clicked")
         }
+        onLogoutClicked: {
+            console.log("logout clicked")
+            home_page.visible = false
+            login_page.visible = true
+        }
+
+        onProfileClicked: {
+            console.log("profile clicked")
+        }
     }
 }

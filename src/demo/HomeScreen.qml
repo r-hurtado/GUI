@@ -2,6 +2,7 @@ import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import Qt.labs.settings 1.0
+import QtQuick.Controls.Styles 1.4
 
 Rectangle {
     signal menuClicked
@@ -11,6 +12,8 @@ Rectangle {
     signal starClicked
     signal commentClicked
     signal rateClicked
+    signal logoutClicked
+    signal profileClicked
 
     Settings{
 
@@ -39,6 +42,8 @@ Rectangle {
         visible: false
         anchors.centerIn: parent
         z:1
+
+        MouseArea{anchors.fill: parent}//Makes choose_theme modal
 
         Rectangle{ // close choose theme
             height: 20
@@ -93,6 +98,7 @@ Rectangle {
             }
 
             Switch{
+                id: sounds_switch
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: parent.height
@@ -114,9 +120,18 @@ Rectangle {
             }
 
             Switch{
+                id: push_switch
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: parent.height
+                style: SwitchStyle{
+                    groove: Rectangle{
+                        implicitHeight: sounds_switch.height
+                        implicitWidth: sounds_switch.width
+                        color: push_switch.checked ? "red" : "grey"
+
+                    }
+                }
             }
         }
 
@@ -136,12 +151,11 @@ Rectangle {
 
             Rectangle{ // Change theme
                 color: "cadetblue"
-                height: 20
-                width: 60
-                anchors.right: parent.right
-                anchors.rightMargin: width
+                height: sounds_switch.height
+                width: sounds_switch.width
                 anchors.verticalCenter: parent.verticalCenter
-
+                anchors.right: parent.right
+                anchors.rightMargin: parent.height
 
                 MouseArea{
                     anchors.fill: parent
@@ -220,7 +234,7 @@ Rectangle {
             width: parent.width
 
             Rectangle{
-                height: parent.height / 3 //number of elements
+                height: parent.height / 3 //Settings
                 width: parent.width
                 border.width: 1
 
@@ -242,7 +256,7 @@ Rectangle {
                 }
             }
             Rectangle{
-                height: parent.height / 3 //number of elements
+                height: parent.height / 3 //Profile
                 width: parent.width
                 border.width: 1
 
@@ -261,7 +275,7 @@ Rectangle {
                 }
             }
             Rectangle{
-                height: parent.height / 3 //number of elements
+                height: parent.height / 3 //Logout
                 width: parent.width
                 border.width: 1
 
@@ -275,7 +289,7 @@ Rectangle {
                     anchors.fill: parent
                     z:0
                     onClicked: {
-                        console.log("Log Out clicked")//pop_menu.visible = false
+                        logoutClicked()
                     }
                 }
             }
