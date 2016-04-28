@@ -13,6 +13,7 @@ Window {
         width: parent.width
 
         onLoginClicked: {
+
             visible = false
             home_page.visible = true
         }

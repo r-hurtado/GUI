@@ -21,7 +21,7 @@ Rectangle {
         enabled: false
         anchors.fill: parent
         onClicked: {
-            pop_menu.visible = false
+            pop_menu.unMenu()//pop_menu.visible = false
             enabled = false
         }
     }
@@ -29,11 +29,39 @@ Rectangle {
     // pop out side menu
     Rectangle{
         id: pop_menu
-        visible: false
+        visible: true//false
         height: parent.height * .4
         width: parent.width * .5
         color: "blue"
+        x: -width
         z:1
+
+        signal menu
+        PropertyAnimation {
+            id: pop_animation
+            target: pop_menu;
+            property: "x";
+            to: 0;
+            duration: 250
+        }
+        signal unMenu
+        PropertyAnimation {
+            id: unpop_animation
+            target: pop_menu;
+            property: "x";
+            to: -width;
+            duration: 250
+        }
+
+        onMenu:
+        {
+            pop_animation.start()
+        }
+        onUnMenu:
+        {
+            unpop_animation.start()
+        }
+
         Column{
             //anchors.fill: parent
             height: parent.height
@@ -96,7 +124,9 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     //animate on x from x = -width -> x = 0
-                    //pop_menu.visible = true
+                    menuClicked()
+                    pop_menu.menu()
+                    pop_menu.visible = true
                     mouse_behind.enabled = true
                 }
             }

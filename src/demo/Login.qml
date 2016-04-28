@@ -20,7 +20,7 @@ Rectangle
     }
 
     Image{
-        source: "/../RussT/img/gear.png"
+        source: "/../../img/gear.png"
         anchors.horizontalCenter: parent.horizontalCenter
         y: parent.height * .15
         height: parent.height * .4
