@@ -1,5 +1,61 @@
 <RCC>
     <qresource prefix="/">
         <file>../../img/gear.png</file>
+        <file>../Theme 1/cancel.png</file>
+        <file>../Theme 1/comment.png</file>
+        <file>../Theme 1/heart.png</file>
+        <file>../Theme 1/logout.png</file>
+        <file>../Theme 1/ok.png</file>
+        <file>../Theme 1/refresh.png</file>
+        <file>../Theme 1/settings.png</file>
+        <file>../Theme 1/share.png</file>
+        <file>../Theme 1/star.png</file>
+        <file>../Theme 1/upload.png</file>
+        <file>../Theme 1/user.png</file>
+        <file>../Theme 2/cancel.png</file>
+        <file>../Theme 2/comment.png</file>
+        <file>../Theme 2/heart.png</file>
+        <file>../Theme 2/logout.png</file>
+        <file>../Theme 2/ok.png</file>
+        <file>../Theme 2/refresh.png</file>
+        <file>../Theme 2/settings.png</file>
+        <file>../Theme 2/share.png</file>
+        <file>../Theme 2/star.png</file>
+        <file>../Theme 2/upload.png</file>
+        <file>../Theme 2/user.png</file>
+        <file>../Theme 3/cancel.png</file>
+        <file>../Theme 3/comment.png</file>
+        <file>../Theme 3/heart.png</file>
+        <file>../Theme 3/logout.png</file>
+        <file>../Theme 3/ok.png</file>
+        <file>../Theme 3/reload.png</file>
+        <file>../Theme 3/settings.png</file>
+        <file>../Theme 3/share.png</file>
+        <file>../Theme 3/star.png</file>
+        <file>../Theme 3/upload.png</file>
+        <file>../Theme 3/user.png</file>
+        <file>../Theme 4/cancel.png</file>
+        <file>../Theme 4/comment.png</file>
+        <file>../Theme 4/heart.png</file>
+        <file>../Theme 4/logout.png</file>
+        <file>../Theme 4/ok.png</file>
+        <file>../Theme 4/refresh.png</file>
+        <file>../Theme 4/settings.png</file>
+        <file>../Theme 4/share.png</file>
+        <file>../Theme 4/star.png</file>
+        <file>../Theme 4/upload.png</file>
+        <file>../Theme 5/cancel.png</file>
+        <file>../Theme 5/comment.png</file>
+        <file>../Theme 5/heart.png</file>
+        <file>../Theme 5/logout.png</file>
+        <file>../Theme 5/ok.png</file>
+        <file>../Theme 5/settings.png</file>
+        <file>../Theme 5/share.png</file>
+        <file>../Theme 5/star.png</file>
+        <file>../Theme 5/upload.png</file>
+        <file>../Theme 5/user.png</file>
+        <file>../Theme 4/user.png</file>
+        <file>../All images/menu.png</file>
+        <file>../Theme 5/refresh.png</file>
     </qresource>
 </RCC>
