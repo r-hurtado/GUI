@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    theme.cpp
 
 RESOURCES += qml.qrc \
     img.qrc
@@ -13,3 +14,6 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
+
+HEADERS += \
+    theme.h

@@ -3,6 +3,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
+import QtGraphicalEffects 1.0
 
 Rectangle {
     signal menuClicked
@@ -15,8 +16,10 @@ Rectangle {
     signal logoutClicked
     signal profileClicked
 
-    Settings{
+    signal themeSet
 
+    Settings{
+        //property alias theme: CurrentTheme
     }
 
     id: home_screen
@@ -87,7 +90,16 @@ Rectangle {
                 border.width: 1
                 color: "#dadddc"
                 Text{text: "Theme 1"; anchors.centerIn: parent; color: "lightseagreen"; font.bold: true}
-            }Rectangle{
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeBackColor("#dadddc")
+                        CurrentTheme.setThemeForeColor("lightseagreen")
+                        themeSet()
+                    }
+                }
+            }
+            Rectangle{
                 height: parent.height/2
                 width: parent.width/2
                 anchors.top: parent.top
@@ -95,7 +107,16 @@ Rectangle {
                 border.width: 1
                 color: "#750042"
                 Text{text: "Theme 2"; anchors.centerIn: parent; color: "#220013"; font.bold: true}
-            }Rectangle{
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeBackColor("#750042")
+                        CurrentTheme.setThemeForeColor("#220013")
+                        themeSet()
+                    }
+                }
+            }
+            Rectangle{
                 height: parent.height/2
                 width: parent.width/2
                 anchors.bottom: parent.bottom
@@ -103,7 +124,16 @@ Rectangle {
                 border.width: 1
                 color: "#0d1d39"
                 Text{text: "Theme 3"; anchors.centerIn: parent; color: "#d3a7f8"; font.bold: true}
-            }Rectangle{
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeBackColor("#0d1d39")
+                        CurrentTheme.setThemeForeColor("#d3a7f8")
+                        themeSet()
+                    }
+                }
+            }
+            Rectangle{
                 height: parent.height/2
                 width: parent.width/2
                 anchors.bottom: parent.bottom
@@ -111,6 +141,14 @@ Rectangle {
                 border.width: 1
                 color: "#7be35a"
                 Text{text: "Theme 4"; anchors.centerIn: parent; color: "#696168"; font.bold: true}
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeBackColor("#7be35a")
+                        CurrentTheme.setThemeForeColor("#696168")
+                        themeSet()
+                    }
+                }
             }
         }
 
@@ -127,27 +165,58 @@ Rectangle {
                 anchors.left: parent.left
                 border.width: 1
                 Image{source: "../Theme 1/user.png"; anchors.centerIn: parent; height: parent.height * .9; width: parent.width * .9}
-            }Rectangle{
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeIcon(1)
+                        themeSet()
+                    }
+                }
+            }
+            Rectangle{
                 height: parent.height/2
                 width: parent.width/2
                 anchors.top: parent.top
                 anchors.right: parent.right
                 border.width: 1
                 Image{source: "../Theme 2/user.png"; anchors.centerIn: parent; height: parent.height * .9; width: parent.width * .9}
-            }Rectangle{
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeIcon(2)
+                        themeSet()
+                    }
+                }
+            }
+            Rectangle{
                 height: parent.height/2
                 width: parent.width/2
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 border.width: 1
                 Image{source: "../Theme 3/user.png"; anchors.centerIn: parent; height: parent.height * .9; width: parent.width * .9}
-            }Rectangle{
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeIcon(3)
+                        themeSet()
+                    }
+                }
+            }
+            Rectangle{
                 height: parent.height/2
                 width: parent.width/2
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
                 border.width: 1
                 Image{source: "../Theme 4/user.png"; anchors.centerIn: parent; height: parent.height * .9; width: parent.width * .9}
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeIcon(4)
+                        themeSet()
+                    }
+                }
             }
         }
 
@@ -420,11 +489,25 @@ Rectangle {
             height: parent.height
             width: parent.width / 4
             border.width: 1
-            Image{source: "../Theme 5/refresh.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            Image{id: refreshIcon; source: "../Theme 5/refresh.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
                 onClicked: refreshedClicked()
             }
+            ColorOverlay {
+                id: refreshIconOverlay
+                anchors.fill: refreshIcon
+                source: refreshIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                refreshIconOverlay.color = CurrentTheme.getThemeForeColor()
+                refreshIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/refresh.png"
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
         // share button
         Rectangle{
