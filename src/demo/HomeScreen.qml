@@ -399,11 +399,13 @@ Rectangle {
             width: parent.width
 
             Rectangle{
+                id: settingsRectRex
                 height: parent.height / 3 //Settings
                 width: parent.width
                 border.width: 1
 
                 Text{
+                    id: settingsText
                     text: "Settings"
                     anchors.centerIn: parent
                     font.pointSize: 20
@@ -421,11 +423,13 @@ Rectangle {
                 }
             }
             Rectangle{ //Profile
+                id: profileRect
                 height: parent.height / 3
                 width: parent.width
                 border.width: 1
 
                 Text{
+                    id: profileText
                     text: "My Profile"
                     anchors.centerIn: parent
                     font.pointSize: 20
@@ -440,11 +444,13 @@ Rectangle {
                 }
             }
             Rectangle{ //Logout
+                id: logoutRect
                 height: parent.height / 3
                 width: parent.width
                 border.width: 1
 
                 Text{
+                    id: logoutText
                     text: "Log Out"
                     anchors.centerIn: parent
                     font.pointSize: 20
@@ -458,6 +464,18 @@ Rectangle {
                     }
                 }
             }
+
+            signal theme
+            onTheme: {
+                logoutRect.color = CurrentTheme.getThemeBackColor()
+                logoutText.color = CurrentTheme.getThemeForeColor()
+                profileRect.color = CurrentTheme.getThemeBackColor()
+                profileText.color = CurrentTheme.getThemeForeColor()
+                settingsRectRex.color = CurrentTheme.getThemeBackColor()
+                settingsText.color = CurrentTheme.getThemeForeColor()
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
 
     }
@@ -471,7 +489,7 @@ Rectangle {
             height: parent.height
             width: parent.width / 4
             border.width: 1
-            Image{source: "../All images/menu.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            Image{id: menuIcon; source: "../All images/menu.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
@@ -482,6 +500,20 @@ Rectangle {
                     mouse_behind.enabled = true
                 }
             }
+
+            ColorOverlay {
+                id: menuIconOverlay
+                anchors.fill: menuIcon
+                source: menuIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                menuIconOverlay.color = CurrentTheme.getThemeForeColor()
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
 
         // Refresh images button
@@ -514,24 +546,52 @@ Rectangle {
             height: parent.height
             width: parent.width / 4
             border.width: 1
-            Image{source: "../Theme 5/share.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            Image{id: shareIcon; source: "../Theme 5/share.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
                 onClicked: sharedClicked()
             }
 
+            ColorOverlay {
+                id: shareIconOverlay
+                anchors.fill: shareIcon
+                source: shareIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                shareIconOverlay.color = CurrentTheme.getThemeForeColor()
+                shareIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/share.png"
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
         // upload photo button
         Rectangle{
             height: parent.height
             width: parent.width / 4
             border.width: 1
-            Image{source: "../Theme 5/upload.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            Image{id: uploadIcon; source: "../Theme 5/upload.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
                 onClicked: uploadClicked()
             }
 
+            ColorOverlay {
+                id: uploadIconOverlay
+                anchors.fill: uploadIcon
+                source: uploadIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                uploadIconOverlay.color = CurrentTheme.getThemeForeColor()
+                uploadIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/upload.png"
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
     }
 
@@ -547,11 +607,26 @@ Rectangle {
             width: parent.width / 4
             border.width: 1
 
-            Image{source: "../Theme 5/star.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            Image{id: starIcon; source: "../Theme 5/star.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
                 onClicked: starClicked()
             }
+
+            ColorOverlay {
+                id: starIconOverlay
+                anchors.fill: starIcon
+                source: starIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                starIconOverlay.color = CurrentTheme.getThemeForeColor()
+                starIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/star.png"
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
 
         // Comment image
@@ -560,11 +635,26 @@ Rectangle {
             width: parent.width / 4
             border.width: 1
 
-            Image{source: "../Theme 5/comment.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            Image{id: commentIcon; source: "../Theme 5/comment.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
                 onClicked: commentClicked()
             }
+
+            ColorOverlay {
+                id: commentIconOverlay
+                anchors.fill: commentIcon
+                source: commentIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                commentIconOverlay.color = CurrentTheme.getThemeForeColor()
+                commentIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/comment.png"
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
 
         // Rate button
@@ -574,6 +664,7 @@ Rectangle {
             border.width: 1
 
             Text{
+                id: rateText
                 text: "RATE"
                 font.pointSize: parent.height/2
                 anchors.centerIn: parent
@@ -582,6 +673,14 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: rateClicked()
             }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                rateText.color = CurrentTheme.getThemeForeColor()
+            }
+
+            Component.onCompleted: themeSet.connect(theme)
         }
     }
 }
