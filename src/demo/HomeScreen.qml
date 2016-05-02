@@ -74,6 +74,13 @@ Rectangle {
             width: settings_rex.width
             anchors.top: parent.top
             Text{text: "Themes"; color: "white"; anchors.centerIn: parent}
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    CurrentTheme.setThemeIcon(5)
+                    themeSet()
+                }
+            }
         }
 
         Rectangle{ // choose individual theme color
@@ -475,7 +482,11 @@ Rectangle {
                 settingsText.color = CurrentTheme.getThemeForeColor()
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
 
     }
@@ -513,7 +524,11 @@ Rectangle {
                 menuIconOverlay.color = CurrentTheme.getThemeForeColor()
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
 
         // Refresh images button
@@ -539,7 +554,11 @@ Rectangle {
                 refreshIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/refresh.png"
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
         // share button
         Rectangle{
@@ -565,7 +584,11 @@ Rectangle {
                 shareIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/share.png"
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
         // upload photo button
         Rectangle{
@@ -591,7 +614,11 @@ Rectangle {
                 uploadIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/upload.png"
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
     }
 
@@ -626,7 +653,11 @@ Rectangle {
                 starIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/star.png"
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
 
         // Comment image
@@ -654,7 +685,11 @@ Rectangle {
                 commentIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/comment.png"
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
 
         // Rate button
@@ -680,7 +715,11 @@ Rectangle {
                 rateText.color = CurrentTheme.getThemeForeColor()
             }
 
-            Component.onCompleted: themeSet.connect(theme)
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
     }
 }
