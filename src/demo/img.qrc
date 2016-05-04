@@ -41,7 +41,6 @@
         <file>../Theme 4/refresh.png</file>
         <file>../Theme 4/settings.png</file>
         <file>../Theme 4/share.png</file>
-        <file>../Theme 4/star.png</file>
         <file>../Theme 4/upload.png</file>
         <file>../Theme 5/cancel.png</file>
         <file>../Theme 5/comment.png</file>
@@ -57,5 +56,6 @@
         <file>../All images/menu.png</file>
         <file>../Theme 5/refresh.png</file>
         <file>../Theme 3/refresh.png</file>
+        <file>../Theme 4/star.png</file>
     </qresource>
 </RCC>

@@ -18,14 +18,8 @@ Rectangle {
 
     signal themeSet
 
-    Settings{
-        //property alias theme: CurrentTheme
-    }
-
     id: home_screen
-    height: 300
-    width: 200
-    color: "silver"
+    color: "#dadddc"
 
     MouseArea{
         id: mouse_behind
@@ -73,12 +67,13 @@ Rectangle {
             height: settings_rex.height * .1
             width: settings_rex.width
             anchors.top: parent.top
-            Text{text: "Themes"; color: "white"; anchors.centerIn: parent}
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    CurrentTheme.setThemeIcon(5)
-                    themeSet()
+            Text{text: "Themes"; color: "white"; anchors.centerIn: parent
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        CurrentTheme.setThemeIcon(5)
+                        themeSet()
+                    }
                 }
             }
         }
@@ -257,8 +252,10 @@ Rectangle {
                 width: parent.width
                 anchors.top: settings_txt.bottom
                 border.width: 1
+                color: "transparent"
 
                 Text {
+                    id: sounds_text
                     text: "Sounds"
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
@@ -279,8 +276,10 @@ Rectangle {
                 width: parent.width
                 anchors.top: sounds_opt.bottom
                 border.width: 1
+                color: "transparent"
 
                 Text {
+                    id: push_text
                     text: "Push Notifications"
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
@@ -296,7 +295,7 @@ Rectangle {
                         groove: Rectangle{
                             implicitHeight: sounds_switch.height
                             implicitWidth: sounds_switch.width
-                            color: push_switch.checked ? "red" : "#BBBBBB"
+                            color: push_switch.checked ? CurrentTheme.getThemeForeColor() : "#BBBBBB"
                             radius: 2
                             border.width: 1
                             border.color: "grey"
@@ -312,8 +311,10 @@ Rectangle {
                 width: parent.width
                 anchors.top: push_opt.bottom
                 border.width: 1
+                color: "transparent"
 
                 Text {
+                    id: theme_text
                     text: "Theme"
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
@@ -321,12 +322,20 @@ Rectangle {
                 }
 
                 Rectangle{ // Change theme
-                    color: "cadetblue"
+                    color: "grey"
                     height: sounds_switch.height
                     width: sounds_switch.width
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                     anchors.rightMargin: parent.height
+                    radius: height * 0.1
+
+                    Text{
+                        anchors.centerIn: parent
+                        text: "Change"
+                        font.pointSize: parent.height / (60/26)
+                        color: "black"
+                    }
 
                     MouseArea{
                         anchors.fill: parent
@@ -360,6 +369,21 @@ Rectangle {
 
                     }
                 }
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                settings_txt.color = CurrentTheme.getThemeForeColor()
+                sounds_text.color = CurrentTheme.getThemeForeColor()
+                push_text.color = CurrentTheme.getThemeForeColor()
+                theme_text.color = CurrentTheme.getThemeForeColor()
+            }
+
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
             }
         }
     }
@@ -468,6 +492,7 @@ Rectangle {
                     z:0
                     onClicked: {
                         logoutClicked()
+                        unpop_animation.start()
                     }
                 }
             }
