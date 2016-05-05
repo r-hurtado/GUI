@@ -1,6 +1,8 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
+import QtMultimedia 5.6
+
 
 Rectangle
 {
@@ -22,6 +24,97 @@ Rectangle
         color: "white"
         anchors.horizontalCenter: parent.horizontalCenter
     }
+
+    Rectangle{ // new screen for upload image
+        id: upload_img
+        height:400
+        width: 400
+        visible: false
+        z:1
+        anchors.horizontalCenter: create_account_rect.horizontalCenter
+
+        Rectangle{ // close picture for a retake
+            id: cancel_pic
+            height: 20
+            width: 20
+            z:1
+            border.width: 2
+            Text{ text: "X"; font.pointSize: 10; anchors.horizontalCenter: parent.horizontalCenter}
+            visible: false
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    video.visible = true
+                    cancel_pic.visible = false
+                    preview_img.visible = false
+                }
+            }
+        }
+
+        Camera { // get persons image
+            id: front_cam
+            imageCapture{
+                onImageCaptured: {
+                    preview_img.source = preview
+                    video.visible = false
+                    preview_img.visible = true
+                    cancel_pic.visible = true
+                }
+            }
+        }
+
+        VideoOutput{ // video stuff
+            id: video
+            anchors.fill: parent
+            source: front_cam
+            focus: visible
+        }
+
+        Image{ // preview image
+            id: preview_img
+            anchors.fill: parent
+            anchors.topMargin: camera_img.height
+            anchors.bottomMargin: camera_img.height
+            visible: false
+        }
+
+        Image{ // grab icon from img pack
+            id: camera_img
+            source: "../All images/camera.png"
+            height: 50
+            width: 50
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            z:2
+
+            Rectangle{ // russ fix it because I broke it
+                //height: parent.height
+                //width: parent.width
+                border.width: 2
+                Text{text: "Close"; font.pointSize: 10; anchors.right: parent.right}
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        upload_img.visible = false
+                    }
+                }
+            }
+
+            MouseArea{ // clickable camera button
+                id: camera_button
+                anchors.fill: parent
+                onClicked: {
+                    front_cam.imageCapture.capture()
+                    // image saved or image captured, because this is so broken
+                    // WARNING: Your default photos folder will be broken with so many test pictures
+                    // also you dont have a webcam so it wont matter for testing. use your laptop
+                    //front_cam.imageCapture.captureToLocation("C:\\Users\\elusi\\Documents\\cst_238_GUI\\RussT\\src\\Upload")
+                    //front_cam.imageCapture.captureToLocation("uploadPicture.jpg")
+                }
+            }
+        }
+    }
+//}
 
     // Back button that takes user to login screen
     Rectangle {
@@ -123,7 +216,12 @@ Rectangle
 
         MouseArea{
             anchors.fill: parent
-            onClicked: uploadImageClicked()/*open front facing camera*/
+            onClicked: {
+                /*open front facing camera*/
+                uploadImageClicked();
+                upload_img.visible = true
+                //create_account_rect.visible = false
+            }
         }
     }
     Rectangle{

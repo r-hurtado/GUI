@@ -236,6 +236,7 @@ Rectangle {
             height: parent.height / 3
             width: (parent.width * 8) / 10
             anchors.centerIn: parent
+            border.width: 1
 
             Text{
                 id: settings_txt
