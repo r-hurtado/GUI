@@ -41,7 +41,11 @@ To be determined. Will work more on installation properties as term progresses.
 Contributions are primarily by Russ Hurtado and Travis Miller. Should someone else desire to make changes they must contact one of us before making changes final and/or committing them. Commits should have a clear, concise title with any further information in the description.
 
 <br>**Bugs and TODO List**<br>
-There are currently no bugs since this project is still in the design phase. Our current list of items is to complete the design of this project and then start working on a desktop version of the application, making sure that simple things like menus and signing in work correctly. From there we will move to making the app function like it should, verifying that all clickable areas work and keeping the app looking clean. Once that works we will port it to mobile phones and work on whatever bugs may arise.
+Current Bugs: None. 
+<br>TODO List: Add the remaining screens to the project. Once screens are added, add the functionality and signals to those screens. Once every screen works visually, we will set up our SQL server to handle uploading pictures and core functionality of our program. As it stands, our project works visually, but not functionally. 
+
+<br>**Revision History**<br>
+Homescreen has been made is the main part of our program, it still needs some work. Login screen is our splash screen and works visually. Create account needs to have the camera be added. 
 
 <br>**Contributor List**<br>
 Russ Hurtado<br>Travis Miller
