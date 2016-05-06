@@ -624,7 +624,10 @@ Rectangle {
             Image{id: uploadIcon; source: "../Theme 5/upload.png"; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
-                onClicked: uploadClicked()
+                onClicked: {
+                    uploadClicked()
+                    choosePhoto_rect.visible = true
+                }
             }
 
             ColorOverlay {
@@ -776,6 +779,21 @@ Rectangle {
             onEightClicked: console.log("8 Clicked.")
             onNineClicked: console.log("9 Clicked.")
             onTenClicked: console.log("10 Clicked.")
+        }
+    }
+
+    MouseArea{
+        id: choosePhoto_rect
+        anchors.fill: home_screen
+        visible: false
+        z: 1
+
+        ChoosePhoto{
+            id: choosePhotoPopup
+            height: parent.height * (2/3)
+            width: parent.width * (2/3)
+            anchors.centerIn: parent
+            onClose: parent.visible = false
         }
     }
 }
