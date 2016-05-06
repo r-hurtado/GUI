@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtGraphicalEffects 1.0
+import QtQuick.Controls 1.4
 
 Rectangle {
     id: root
@@ -454,7 +455,7 @@ Rectangle {
     }
     //Border for "10"
     Rectangle{
-        height: tenRect.width
+        height: tenRect.height
         width: root.width / 3 * 2
         x: tenRect.x
         y: tenRect.y + (parent.height * 0.1)
@@ -471,28 +472,11 @@ Rectangle {
         border.width: 1
         anchors.bottom: parent.bottom
 
-        Text{
-            id:commentText
-            text: "Comment box (optional)"
-            font.pointSize: parent.height/2
-            anchors.centerIn: parent
-        }
-
-        MouseArea{
+        TextField{
+            id: commentText
+            placeholderText: "Comment box (optional)"
             anchors.fill: parent
-            onClicked: oneClicked()
-        }
-
-        signal theme
-        onTheme: {
-            color = CurrentTheme.getThemeBackColor()
-            commentText.color = CurrentTheme.getThemeForeColor()
-        }
-
-        Component.onCompleted:
-        {
-            theme()
-            themeSet.connect(theme)
+            font.pointSize: parent.height / 4
         }
     }
 }

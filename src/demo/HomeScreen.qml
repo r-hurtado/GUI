@@ -766,6 +766,16 @@ Rectangle {
 
             onBackClicked: parent.visible = false
             onSubmitClicked: parent.visible = false
+            onOneClicked: console.log("1 Clicked.")
+            onTwoClicked: console.log("2 Clicked.")
+            onThreeClicked: console.log("3 Clicked.")
+            onFourClicked: console.log("4 Clicked.")
+            onFiveClicked: console.log("5 Clicked.")
+            onSixClicked: console.log("6 Clicked.")
+            onSevenClicked: console.log("7 Clicked.")
+            onEightClicked: console.log("8 Clicked.")
+            onNineClicked: console.log("9 Clicked.")
+            onTenClicked: console.log("10 Clicked.")
         }
     }
 }
