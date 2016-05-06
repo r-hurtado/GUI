@@ -58,5 +58,6 @@
         <file>../Theme 3/refresh.png</file>
         <file>../Theme 4/star.png</file>
         <file>../All images/camera.png</file>
+        <file>../All images/left-arrow.png</file>
     </qresource>
 </RCC>

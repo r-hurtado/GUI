@@ -4,5 +4,6 @@
         <file>Login.qml</file>
         <file>CreateAccount.qml</file>
         <file>HomeScreen.qml</file>
+        <file>Rating.qml</file>
     </qresource>
 </RCC>

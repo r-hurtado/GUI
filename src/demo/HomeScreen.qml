@@ -732,7 +732,10 @@ Rectangle {
             }
             MouseArea{
                 anchors.fill: parent
-                onClicked: rateClicked()
+                onClicked: {
+                    rateClicked()
+                    rating_rect.visible = true
+                }
             }
 
             signal theme
@@ -746,6 +749,23 @@ Rectangle {
                 theme()
                 themeSet.connect(theme)
             }
+        }
+    }
+
+    MouseArea{
+        anchors.fill: home_screen
+        z: 1
+        id: rating_rect
+        visible: false
+
+        Rating{
+            id: ratingPopup
+            height: parent.height * (2/3)
+            width: parent.width * (2/3)
+            anchors.centerIn: parent
+
+            onBackClicked: parent.visible = false
+            onSubmitClicked: parent.visible = false
         }
     }
 }
