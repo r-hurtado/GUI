@@ -32,22 +32,62 @@ Rectangle
         width: 400
         visible: false
         z:1
-        anchors.horizontalCenter: create_account_rect.horizontalCenter
+        //anchors.horizontalCenter: create_account_rect.horizontalCenter
+        anchors.centerIn: parent
 
-        Rectangle{ // close picture for a retake
-            id: cancel_pic
-            height: 20
-            width: 20
-            z:1
-            border.width: 2
-            Text{ text: "X"; font.pointSize: 10; anchors.horizontalCenter: parent.horizontalCenter}
+        Row{ // options row
+            id: buttons_row
+            height: camera_img.height
+            width: parent.width
             visible: false
+            anchors.bottom: parent.bottom
+            Rectangle{ // cancel
+                height: parent.height
+                width: parent.width/2
+                color: "white"
+                border.width: 1
+                Text{text: "Cancel"; font.pointSize: 10; anchors.centerIn: parent}
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        video.visible = true
+                        close.visible = true
+                        preview_img.visible = false
+                        camera_img.visible = true
+                        buttons_row.visible = false
+                    }
+                }
+            }
+            Rectangle{ // select
+                height: parent.height
+                width: parent.width/2
+                color: "white"
+                border.width: 1
+                Text{text: "Select"; font.pointSize: 10; anchors.centerIn: parent}
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        // Set image
+                        //upload_img.visible = false
+
+                    }
+                }
+            }
+        }
+
+
+        Rectangle{ // russ fix it because I broke it JK I fixed it but I'm leaving comments in
+            id: close
+            height: 20
+            width: 50
+            border.width: 2
+            anchors.right: parent.right
+            Text{text: "Close"; font.pointSize: 10; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    video.visible = true
-                    cancel_pic.visible = false
-                    preview_img.visible = false
+                    upload_img.visible = false
+
                 }
             }
         }
@@ -59,7 +99,6 @@ Rectangle
                     preview_img.source = preview
                     video.visible = false
                     preview_img.visible = true
-                    cancel_pic.visible = true
                 }
             }
         }
@@ -69,6 +108,15 @@ Rectangle
             anchors.fill: parent
             source: front_cam
             focus: visible
+
+            Rectangle{
+                height: upload_img.width / 2
+                width: height
+                radius: width/2
+                color: "transparent"
+                border.width: 2
+                anchors.centerIn: parent
+            }
         }
 
         Image{ // preview image
@@ -88,24 +136,14 @@ Rectangle
             anchors.bottom: parent.bottom
             z:2
 
-            Rectangle{ // russ fix it because I broke it
-                //height: parent.height
-                //width: parent.width
-                border.width: 2
-                Text{text: "Close"; font.pointSize: 10; anchors.right: parent.right}
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        upload_img.visible = false
-                    }
-                }
-            }
-
             MouseArea{ // clickable camera button
                 id: camera_button
                 anchors.fill: parent
                 onClicked: {
                     front_cam.imageCapture.capture()
+                    camera_img.visible = false
+                    buttons_row.visible = true
+                    close.visible = false
                     // image saved or image captured, because this is so broken
                     // WARNING: Your default photos folder will be broken with so many test pictures
                     // also you dont have a webcam so it wont matter for testing. use your laptop
@@ -115,7 +153,7 @@ Rectangle
             }
         }
     }
-//}
+    //}
 
     // Back button that takes user to login screen
     Rectangle {
