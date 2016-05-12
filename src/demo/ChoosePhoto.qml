@@ -90,7 +90,8 @@ Rectangle {
         width: parent.width
         anchors.top: photo.bottom
         border.width: 1
-        color: "transparent"
+        color: "transparent"       
+
         MouseArea{
             anchors.fill: parent
             onClicked: close()

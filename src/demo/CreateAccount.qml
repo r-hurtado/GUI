@@ -32,7 +32,6 @@ Rectangle
         width: 400
         visible: false
         z:1
-        //anchors.horizontalCenter: create_account_rect.horizontalCenter
         anchors.centerIn: parent
 
         Row{ // options row
@@ -41,12 +40,14 @@ Rectangle
             width: parent.width
             visible: false
             anchors.bottom: parent.bottom
+
             Rectangle{ // cancel
                 height: parent.height
                 width: parent.width/2
                 color: "white"
                 border.width: 1
                 Text{text: "Cancel"; font.pointSize: 10; anchors.centerIn: parent}
+
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
@@ -58,18 +59,25 @@ Rectangle
                     }
                 }
             }
+
             Rectangle{ // select
                 height: parent.height
                 width: parent.width/2
                 color: "white"
                 border.width: 1
                 Text{text: "Select"; font.pointSize: 10; anchors.centerIn: parent}
+
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
                         // Set image
-                        //upload_img.visible = false
-
+                        temp.source = preview_img.source
+                        upload_img.visible = false
+                        video.visible = true
+                        close.visible = true
+                        preview_img.visible = false
+                        camera_img.visible = true
+                        buttons_row.visible = false
                     }
                 }
             }
@@ -83,11 +91,11 @@ Rectangle
             border.width: 2
             anchors.right: parent.right
             Text{text: "Close"; font.pointSize: 10; anchors.centerIn: parent}
+
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    upload_img.visible = false
-
+                    upload_img.visible = false              
                 }
             }
         }
@@ -112,9 +120,8 @@ Rectangle
             Rectangle{
                 height: upload_img.width / 2
                 width: height
-                radius: width/2
                 color: "transparent"
-                border.width: 2
+                //border.width: 2 // outline for picture but its broken
                 anchors.centerIn: parent
             }
         }
@@ -147,13 +154,11 @@ Rectangle
                     // image saved or image captured, because this is so broken
                     // WARNING: Your default photos folder will be broken with so many test pictures
                     // also you dont have a webcam so it wont matter for testing. use your laptop
-                    //front_cam.imageCapture.captureToLocation("C:\\Users\\elusi\\Documents\\cst_238_GUI\\RussT\\src\\Upload")
-                    //front_cam.imageCapture.captureToLocation("uploadPicture.jpg")
+                    //front_cam.imageCapture.captureToLocation("C:/Users/elusi/Documents/cst_238_GUI/RussT/src/Upload")
                 }
             }
         }
     }
-    //}
 
     // Back button that takes user to login screen
     Rectangle {
@@ -180,13 +185,20 @@ Rectangle
     Rectangle{
         height: parent.width / 4
         width: height
-        radius: width/2
         color: "white"
+        Text{text: "Upload an image"; anchors.centerIn: parent}
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: parent.height / -3.5
         border.color: "black"
         border.width: 2
+
+        Image{
+            id: temp
+            anchors.fill: parent
+            //fillMode: Image.PreserveAspectFit
+            fillMode: Image.PreserveAspectCrop
+        }
     }
 
     // buttons for create username, email, password
@@ -204,15 +216,12 @@ Rectangle
             anchors.fill: parent
         }
 
-
         Rectangle{
             id: create_email
             height: parent.height
             width: parent.width
             color: parent.color
-
             y: parent.height * 1.5
-
 
             TextField{
                 id: email_txt
@@ -225,7 +234,6 @@ Rectangle
                 height: parent.height
                 width: parent.width
                 color: parent.color
-
                 y: parent.height * 1.5
 
                 TextField{
@@ -235,8 +243,8 @@ Rectangle
                 }
             }
         }
-
     }
+
     // confirm create account button
     Rectangle{
         color: "silver"
@@ -282,7 +290,5 @@ Rectangle
             anchors.fill: parent
             onClicked: createAccountClicked()
         }
-
-
     }
 }
