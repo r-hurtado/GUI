@@ -25,7 +25,6 @@ Rectangle
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-
     Rectangle{ // new screen for upload image
         id: upload_img
         height:400
