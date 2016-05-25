@@ -470,7 +470,8 @@ Rectangle {
                     anchors.fill: parent
                     z:0
                     onClicked: {
-                        console.log("My Profile clicked")//pop_menu.visible = false
+                        profileClicked()
+                        pop_menu.visible = false
                     }
                 }
             }

@@ -86,15 +86,28 @@ Window {
 
         onProfileClicked: {
             console.log("profile clicked")
+            home_page.visible = false
+            profile_page.visible = true
         }
     }
 
     MyProfile{
+        id: profile_page
         anchors.fill: parent
+        visible: false
+
         onInfoClicked: console.log("info clicked")
         onPicsClicked: console.log("pics clicked")
         onFriendsClicked: console.log("friends clicked")
         onFavoritesClicked: console.log("favorites clicked")
+
+        onBackClicked: {
+            console.log("profile clicked")
+            home_page.visible = true
+            profile_page.visible = false
+        }
+
+        onVisibleChanged: theme()
 
     }
 }

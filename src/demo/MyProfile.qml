@@ -8,22 +8,48 @@ Rectangle{
     signal friendsClicked
     signal favoritesClicked
 
+    signal backClicked
+
     onTheme: color = CurrentTheme.getThemeBackColor()
 
     Component.onCompleted:
     {
         theme()
-        themeSet.connect(theme)
+        //themeSet.connect(theme)
     }
 
     Rectangle{
         id: userRect
+        height: parent.height / 3
+        width: parent.width
+        color: "green"
         // user name text
+        Rectangle{
+            id: nameRect
+            height: parent.height / 6
+            width: parent.width / 2
+            anchors.bottom: userRect.bottom
+            color: "blue"
+        }
         // picture from sql
         // back arrow
+        Rectangle
+        {
+            id: backRect
+            height: parent.height / 3
+            width: height
+            color: "black"
+        }
     }
     Rectangle{
+        id: rowRect
+        height: parent.height / 6
+        width: parent.width
+        anchors.top: userRect.bottom
+
         Row{
+            anchors.fill: parent
+
             Rectangle{
                id: info
                height: parent.height
@@ -52,7 +78,7 @@ Rectangle{
                Component.onCompleted:
                {
                    theme()
-                   themeSet.connect(theme)
+                   //themeSet.connect(theme)
                }
             }
             Rectangle{
@@ -83,7 +109,7 @@ Rectangle{
                 Component.onCompleted:
                 {
                     theme()
-                    themeSet.connect(theme)
+                    //themeSet.connect(theme)
                 }
             }
             Rectangle{
@@ -114,7 +140,7 @@ Rectangle{
                 Component.onCompleted:
                 {
                     theme()
-                    themeSet.connect(theme)
+                    //themeSet.connect(theme)
                 }
             }
             Rectangle{
@@ -145,14 +171,18 @@ Rectangle{
                 Component.onCompleted:
                 {
                     theme()
-                    themeSet.connect(theme)
+                    //themeSet.connect(theme)
                 }
             }
         }
     }
     Rectangle{
         id: extra
-        signal info
+        height: parent.height / 2
+        width: parent.width
+        anchors.top: rowRect.bottom
+        color: "red"
+        /*signal info
         signal pics
         signal friends
         signal favorites
@@ -167,6 +197,6 @@ Rectangle{
             picsClicked.connect(pics)
             friendsClicked.connect(friends)
             favoritesClicked.connect(favorites)
-        }
+        }*/
     }
 }
