@@ -15,7 +15,6 @@ Rectangle {
     signal rateClicked
     signal logoutClicked
     signal profileClicked
-
     signal themeSet
 
     id: home_screen

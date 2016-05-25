@@ -13,7 +13,6 @@ Window {
         width: parent.width
 
         onLoginClicked: {
-
             visible = false
             home_page.visible = true
         }
@@ -78,6 +77,7 @@ Window {
         onRateClicked: {
             console.log("rate clicked")
         }
+
         onLogoutClicked: {
             console.log("logout clicked")
             home_page.visible = false
@@ -87,5 +87,14 @@ Window {
         onProfileClicked: {
             console.log("profile clicked")
         }
+    }
+
+    MyProfile{
+        anchors.fill: parent
+        onInfoClicked: console.log("info clicked")
+        onPicsClicked: console.log("pics clicked")
+        onFriendsClicked: console.log("friends clicked")
+        onFavoritesClicked: console.log("favorites clicked")
+
     }
 }

@@ -6,5 +6,6 @@
         <file>HomeScreen.qml</file>
         <file>Rating.qml</file>
         <file>ChoosePhoto.qml</file>
+        <file>MyProfile.qml</file>
     </qresource>
 </RCC>

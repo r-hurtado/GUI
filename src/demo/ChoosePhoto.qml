@@ -1,12 +1,12 @@
 import QtQuick 2.2
 import QtQuick.Dialogs 1.2
+import QtGraphicalEffects 1.0
 
 Rectangle {
     id: root
     border.width: 1
 
     signal close
-
     signal theme
     onTheme: color = CurrentTheme.getThemeBackColor()
 
@@ -28,18 +28,29 @@ Rectangle {
             text: "Browse Photo Library"
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.leftMargin: parent.height / 10
-            font.pointSize: parent.height / 5
+            anchors.leftMargin: parent.height / 12
+            font.pointSize: parent.height / 6
         }
 
         Rectangle{
             id: browse_button
-            height: parent.height * (8/30)
+            height: parent.height * (1/3)
             width: parent.width * 0.2
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: parent.height / 5
+            border.width: 1
 
+            signal theme
+            onTheme: {color = CurrentTheme.getThemeForeColor(); buttonText.color = CurrentTheme.getThemeBackColor()}
+
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
+
+            Text{id: buttonText; text: "Browse"; anchors.centerIn: parent; font.pointSize: parent.height/3.5}
             MouseArea{
                 anchors.fill: parent
                 onClicked: fileDialog.visible = true
@@ -67,34 +78,108 @@ Rectangle {
         onAccepted: {
             console.log("\nYou chose: " + fileDialog.fileUrls)
             photo.source = fileDialog.fileUrls[0]
-            //Qt.quit()
+            gearOverlay.visible = false
         }
         onRejected: {
             console.log("Canceled")
-            //Qt.quit()
         }
         //Component.onCompleted: visible = true
     }
 
     Image {
         id: photo
-        height: parent.height * 0.7
-        width: parent.width
+        height: parent.height * 0.6
+        width: parent.width * .9
+        x: parent.width * .05
         anchors.top: browse_opt.bottom
+        anchors.topMargin: parent.height * .05
         fillMode: Image.PreserveAspectFit
         source: "qrc:/../../img/gear.png"
+
+        ColorOverlay {
+            id: gearOverlay
+            anchors.fill: parent
+            source: parent
+        }
+
+        signal theme
+        onTheme: gearOverlay.color = CurrentTheme.getThemeForeColor()
+
+        Component.onCompleted:
+        {
+            theme()
+            themeSet.connect(theme)
+        }
     }
 
-    Rectangle{ //Browse
+    Rectangle{
+        id: browse
         height: parent.height * 0.1
         width: parent.width
-        anchors.top: photo.bottom
+        anchors.bottom: parent.bottom
         border.width: 1
         color: "transparent"       
 
-        MouseArea{
-            anchors.fill: parent
-            onClicked: close()
+        Rectangle{
+            height: parent.height
+            width: parent.width /2
+            border.width: 1
+            id: cancel
+            Image{id: cancelIcon; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            MouseArea{
+                anchors.fill: parent
+                onClicked: close()
+            }
+
+            ColorOverlay {
+                id: cancelIconOverlay
+                anchors.fill: cancelIcon
+                source: cancelIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                cancelIconOverlay.color = CurrentTheme.getThemeForeColor()
+                cancelIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/cancel.png"
+            }
+
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
+        }
+        Rectangle{
+            height: parent.height
+            width: parent.width /2
+            x: width
+            border.width: 1
+            id: ok
+            Image{id: okIcon; height: parent.height * .9; width: height; anchors.centerIn: parent}
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {console.log("upload clicked"); close()}
+            }
+
+            ColorOverlay {
+                id: okIconOverlay
+                anchors.fill: okIcon
+                source: okIcon
+            }
+
+            signal theme
+            onTheme: {
+                color = CurrentTheme.getThemeBackColor()
+                okIconOverlay.color = CurrentTheme.getThemeForeColor()
+                okIcon.source = "../Theme " + CurrentTheme.getThemeIcon() + "/ok.png"
+            }
+
+            Component.onCompleted:
+            {
+                theme()
+                themeSet.connect(theme)
+            }
         }
     }
 }

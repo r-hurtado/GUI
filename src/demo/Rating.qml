@@ -15,8 +15,8 @@ Rectangle {
         themeSet.connect(theme)
     }
 
+    signal submitClicked
     signal backClicked
-
     signal oneClicked
     signal twoClicked
     signal threeClicked
@@ -27,8 +27,6 @@ Rectangle {
     signal eightClicked
     signal nineClicked
     signal tenClicked
-
-    signal submitClicked
 
     //Back arrow
     Rectangle{
@@ -115,7 +113,7 @@ Rectangle {
 
             MouseArea{
                 anchors.fill: parent
-                onClicked: oneClicked()
+                onClicked: twoClicked()
             }
 
             signal theme
@@ -145,7 +143,7 @@ Rectangle {
 
             MouseArea{
                 anchors.fill: parent
-                onClicked: oneClicked()
+                onClicked: threeClicked()
             }
 
             signal theme
@@ -175,7 +173,7 @@ Rectangle {
 
             MouseArea{
                 anchors.fill: parent
-                onClicked: oneClicked()
+                onClicked: fourClicked()
             }
 
             signal theme
@@ -205,7 +203,7 @@ Rectangle {
 
             MouseArea{
                 anchors.fill: parent
-                onClicked: oneClicked()
+                onClicked: fiveClicked()
             }
 
             signal theme
@@ -235,7 +233,7 @@ Rectangle {
 
             MouseArea{
                 anchors.fill: parent
-                onClicked: oneClicked()
+                onClicked: sixClicked()
             }
 
             signal theme
