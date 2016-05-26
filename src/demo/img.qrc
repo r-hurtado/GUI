@@ -59,5 +59,7 @@
         <file>../Theme 4/star.png</file>
         <file>../All images/camera.png</file>
         <file>../All images/left-arrow.png</file>
+        <file>../All images/gallery.png</file>
+        <file>../All images/heart.png</file>
     </qresource>
 </RCC>
