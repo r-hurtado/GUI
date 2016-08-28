@@ -59,10 +59,11 @@ Rectangle{
         }
         Rectangle{
             id: userPicture
-            color: "black"
+            color: "transparent"
             anchors.centerIn: parent
-            height: 40
-            width: 40
+            height: 100
+            width: 100
+            Image{source: "../Theme 1/user.png"; anchors.fill: parent}
         }
     }
 
@@ -224,7 +225,8 @@ Rectangle{
         anchors.top: rowRect.bottom
         color: "violet"
         Text{
-            text: ",kjasghdfkjhasgdfkjlhdfsjkh"
+            text: "Information about user"
+            font.pointSize: 14
         }
 
         /*signal info

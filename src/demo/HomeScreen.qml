@@ -230,6 +230,9 @@ Rectangle {
         id: settings_rect
         visible: false
 
+        //for default switch values
+        Switch{id:default_switch; visible: false}
+
         Rectangle{
             id: settings_rex
             height: parent.height / 3
@@ -257,6 +260,7 @@ Rectangle {
                 Text {
                     id: sounds_text
                     text: "Sounds"
+                    font.pointSize: parent.height/4
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     anchors.leftMargin: parent.height
@@ -264,6 +268,27 @@ Rectangle {
 
                 Switch{
                     id: sounds_switch
+                    style: SwitchStyle{
+                        groove: Rectangle{
+                            implicitHeight: default_switch.height
+                            implicitWidth: default_switch.width
+                            color: sounds_switch.checked ? "lightseagreen"/*CurrentTheme.getThemeForeColor()*/ : "#BBBBBB"
+                            radius: 2
+                            border.width: 1
+                            border.color: "grey"
+
+                            signal theme
+                            onTheme: {
+                                color = sounds_switch.checked ? CurrentTheme.getThemeForeColor() : "#BBBBBB"
+                            }
+
+                            Component.onCompleted:
+                            {
+                                //theme()
+                                themeSet.connect(theme)
+                            }
+                        }
+                    }
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                     anchors.rightMargin: parent.height
@@ -281,6 +306,7 @@ Rectangle {
                 Text {
                     id: push_text
                     text: "Push Notifications"
+                    font.pointSize: parent.height/4
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     anchors.leftMargin: parent.height
@@ -293,13 +319,24 @@ Rectangle {
                     anchors.rightMargin: parent.height
                     style: SwitchStyle{
                         groove: Rectangle{
-                            implicitHeight: sounds_switch.height
-                            implicitWidth: sounds_switch.width
-                            color: push_switch.checked ? CurrentTheme.getThemeForeColor() : "#BBBBBB"
+                            id:push_switch_style
+                            implicitHeight: default_switch.height
+                            implicitWidth: default_switch.width
+                            color: push_switch.checked ? "lightseagreen"/*CurrentTheme.getThemeForeColor()*/ : "#BBBBBB"
                             radius: 2
                             border.width: 1
                             border.color: "grey"
 
+                            signal theme
+                            onTheme: {
+                                color = push_switch.checked ? CurrentTheme.getThemeForeColor() : "#BBBBBB"
+                            }
+
+                            Component.onCompleted:
+                            {
+                                //theme()
+                                themeSet.connect(theme)
+                            }
                         }
                     }
                 }
@@ -316,6 +353,7 @@ Rectangle {
                 Text {
                     id: theme_text
                     text: "Theme"
+                    font.pointSize: parent.height/4
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     anchors.leftMargin: parent.height

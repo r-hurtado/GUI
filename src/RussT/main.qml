@@ -8,116 +8,173 @@ import QtQuick.Window 2.2
 
 Window {
     visible: true
-    height: 450
-    width: 0800
+    height: 720
+    width: 1280
     color: "black"
     visibility: "Maximized"
 
-    Text{
-     text: Users.first.getUsername()
+    Rectangle {
+        id: prect
+        color: "#cccccc"
+        x: 1280 - width
+        height: 40
+        width: 200
+        border.color: "black"
+        border.width: 2
+
+        Text {
+            id: rect
+            anchors.verticalCenter: parent.verticalCenter
+            x: 30
+            font.pixelSize: 18
+            text: "Russ: " + click
+            property int click: 0
+        }
+
+        /*MouseArea{
+            height: 40
+            width: 200
+            z: 20
+            onClicked: {
+                if(rect.click === 0)
+                    nestedModel.append({"categoryName": "Russ", "collapsed": false})
+                else
+                    nestedModel.get(3).subItems.append({ itemName: "cheese" })
+                rect.click++
+                console.log("Clicked")
+            }
+        }*/
+    }
+
+    ListView {
+        anchors.fill: parent
+        model: nestedModel
+        delegate: categoryDelegate
+    }
+
+    ListModel {
+        id: nestedModel
+        ListElement {
+            categoryName: "Veggies"
+            collapsed: false
+
+            // A ListElement can't contain child elements, but it can contain
+            // a list of elements. A list of ListElements can be used as a model
+            // just like any other model type.
+            subItems: [
+                ListElement { itemName: "Tomato" },
+                ListElement { itemName: "Cucumber" },
+                ListElement { itemName: "Onion" },
+                ListElement { itemName: "Brains" }
+            ]
+        }
+
+        ListElement {
+            categoryName: "Fruits"
+            collapsed: false
+            subItems: [
+                ListElement { itemName: "Orange" },
+                ListElement { itemName: "Apple" },
+                ListElement { itemName: "Pear" },
+                ListElement { itemName: "Lemon" }
+            ]
+        }
+
+        ListElement {
+            categoryName: "Cars"
+            collapsed: false
+            subItems: [
+                ListElement { itemName: "Nissan" },
+                ListElement { itemName: "Toyota" },
+                ListElement { itemName: "Chevy" },
+                ListElement { itemName: "Audi" }
+            ]
+        }
+    }
+
+    Component {
+        id: categoryDelegate
+        Column {
+            width: 200
+
+            Rectangle {
+                id: categoryItem
+                border.color: "black"
+                border.width: 5
+                color: "white"
+                height: 50
+                width: 200
+
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    x: 15
+                    font.pixelSize: 24
+                    text: categoryName
+                }
+
+                Rectangle {
+                    color: "red"
+                    width: 30
+                    height: 30
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    MouseArea {
+                        anchors.fill: parent
+
+                        // Toggle the 'collapsed' property
+                        onClicked:
+                        {
+                            nestedModel.setProperty(index, "collapsed", !collapsed)
+                            /*rect.text = *///nestedModel.get(index).subItems.append({ itemName: "cheese" })
+                            if(rect.click === 0)
+                                nestedModel.append({"categoryName": "Russ", "collapsed": false, "subItems": []})
+                            else
+                                nestedModel.get(index).subItems.append({ itemName: nestedModel.get(index).categoryName + ": " + rect.click.toString() })
+                            rect.click++
+                        }
+                    }
+                }
+            }
+
+            Loader {
+                id: subItemLoader
+
+                // This is a workaround for a bug/feature in the Loader element. If sourceComponent is set to null
+                // the Loader element retains the same height it had when sourceComponent was set. Setting visible
+                // to false makes the parent Column treat it as if it's height was 0.
+                visible: !collapsed
+                property variant subItemModel : subItems
+                sourceComponent: collapsed ? null : subItemColumnDelegate
+                onStatusChanged: if (status == Loader.Ready) item.model = subItemModel
+            }
+        }
 
     }
 
-    Dialog{
+    Component {
+        id: subItemColumnDelegate
+        Column {
+            property alias model : subItemRepeater.model
+            width: 200
+            Repeater {
+                id: subItemRepeater
+                delegate: Rectangle {
+                    color: "#cccccc"
+                    height: 40
+                    width: 200
+                    border.color: "black"
+                    border.width: 2
 
-        Image{
-            source: "../../img/gear.png"
-            height:80
-            width:80
-            x: parent.width/2 - width/2
-        }
-
-        id: secondBox
-        visible: false
-        height: 200
-        width: 0300
-        font.pointSize: 10
-        color: "silver"
-        text: "\tPresented by:\nRussell Hurtado and Travis Miller"
-        x: parent.width/2 - width/2
-        y: parent.height/2 - height/2
-
-        bHeight: 45
-        bWidth: 160
-        bRadius: bHeight/5
-        bColor: "red"
-        bFontColor: "white"
-        bText: "Close"
-        bAnchors.bottom: bottom
-        bAnchors.bottomMargin: bHeight/5
-        bAnchors.horizontalCenter: horizontalCenter
-
-        onHoverStarted: bColor = "blue"
-        onHoverFinished: bColor = "red"
-
-        DropArea{
-            anchors.fill: parent
-            Drag.dragType: Drag.Automatic
-            keys:[]
-        }
-
-        Drag.active: mouseArea.drag.active
-        maximumDragX: parent.width
-        maximumDragY: parent.height
-        Drag.hotSpot.x: width/2
-        Drag.hotSpot.y: height/2
-
-        onClicked: Qt.quit()
-    }
-
-    Dialog{
-
-
-        id: firstBox
-        height: 300
-        width: 0700
-        color: "blue"
-        text: "Welcome!\nOur program is a photo sharing app.\nUsers will upload photos, then rate and comment on other photos.\n"
-        x: parent.width/2 - width/2
-        y: parent.height/2 - height/2
-        font.pointSize: 12
-        font.bold: true
-        fontColor: "white"
-
-        tZ: 3
-        bHeight: 45
-        bWidth: 160
-        bRadius: bHeight/5
-        bColor: "red"
-        bFontColor: "white"
-        bText: "Click Me"
-        bAnchors.bottom: bottom
-        bAnchors.bottomMargin: bHeight/5
-        bAnchors.horizontalCenter: horizontalCenter
-
-        DropArea{
-            id:dropArea
-            anchors.fill: parent
-            Drag.dragType: Drag.Automatic
-            keys:[]
-        }
-
-        Drag.active: mouseArea.drag.active
-        maximumDragX: parent.width
-        maximumDragY: parent.height
-        Drag.hotSpot.x: width/2
-        Drag.hotSpot.y: height/2
-
-        onHoverStarted: bColor = "green"
-        onHoverFinished: bColor = "red"
-        onClicked:{
-            visible = false
-            x = parent.width/2 - width/2
-            y = parent.height/2 - height/2
-            secondBox.visible = true
-        }
-
-        Image{
-            source: "../../img/gear.png"
-            height:240
-            width:240
-            x: parent.width/2 - width/2
-            z:2
+                    Text {
+                        anchors.verticalCenter: parent.verticalCenter
+                        x: 30
+                        font.pixelSize: 18
+                        text: itemName
+                    }
+                }
+            }
         }
     }
 }
