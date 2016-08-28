@@ -18,7 +18,12 @@ Rectangle {
     signal themeSet
 
     id: home_screen
-    color: "#dadddc"
+
+    //color: "#b8bbba"//Slightly darker background >> Original: "#dadddc"
+    onThemeSet: {
+        color = Qt.darker(CurrentTheme.getThemeBackColor(), 1.5)
+    }
+    Component.onCompleted: themeSet()
 
     MouseArea{
         id: mouse_behind

@@ -118,7 +118,7 @@ Rectangle {
         width: parent.width
         anchors.bottom: parent.bottom
         border.width: 1
-        color: "transparent"       
+        color: "transparent"
 
         Rectangle{
             height: parent.height
@@ -128,7 +128,7 @@ Rectangle {
             Image{id: cancelIcon; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
-                onClicked: close()
+                onClicked: {browse_text.text = "Browse Photo Library"; close()}
             }
 
             ColorOverlay {
@@ -159,7 +159,19 @@ Rectangle {
             Image{id: okIcon; height: parent.height * .9; width: height; anchors.centerIn: parent}
             MouseArea{
                 anchors.fill: parent
-                onClicked: {console.log("upload clicked"); close()}
+                onClicked: {
+                    if(gearOverlay.visible === true)
+                    {
+                        console.log("ERROR: no file chosen")
+                        browse_text.text = "ERROR: Choose photo"
+                    }
+                    else
+                    {
+                        console.log("Ok clicked -> uploading file: " + fileDialog.fileUrls[0])
+                        close()
+                        browse_text.text = "Browse Photo Library"
+                    }
+                }
             }
 
             ColorOverlay {
